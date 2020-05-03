@@ -53,9 +53,12 @@ Deno.test("applyMixins to function", () => {
 
   applyMixins(
     point3,
-    [point1, point2, { z: 7, toString: function (this: Point4D) {
-      return [this.x, this.y, this.z, this.time].join(", ");
-    } }],
+    [point1, point2, {
+      z: 7,
+      toString: function (this: Point4D) {
+        return [this.x, this.y, this.z, this.time].join(", ");
+      },
+    }],
   );
   assertEquals(point3(1, 2, 3, 4), "1, 2, 3, 4");
   assertEquals(point3.toString(), "2, 3, 7, 5");
@@ -107,9 +110,11 @@ Deno.test("applyMixins to class", () => {
   const point1: Point = { x: 2, y: 3 };
   const point2: TimePoint = { time: 5 };
   applyMixins(Point4D, [point1, point2, { z: 7 }]);
-  applyMixins(Point4D.prototype, [{ toArray: function () {
-    return [this.x, this.y, this.z, this.time];
-  } }]);
+  applyMixins(Point4D.prototype, [{
+    toArray: function () {
+      return [this.x, this.y, this.z, this.time];
+    },
+  }]);
 
   assertEquals(Point4D.example(), "2, 3, 7, 5");
   assertEquals(

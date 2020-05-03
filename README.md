@@ -1,5 +1,8 @@
 # Mixins
 
+[![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
+[![deno version](https://img.shields.io/badge/deno-0.42.0-success)](https://github.com/denoland/deno)
+
 This module provides a few basic functions to help combine objects or build up classes from partial classes.
 
 ## Usage
@@ -13,7 +16,7 @@ Applies properties of mixins to instance.
 Using `applyMixins` to add properties to an object:
 
 ```ts
-import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.1.0/apply.ts";
+import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.2.0/apply.ts";
 interface Point {
   x: number;
   y: number;
@@ -35,7 +38,7 @@ point3; // { time: 5, x: 2, y: 3, z: 7 }
 Using `applyMixins` to add properties to a function:
 
 ```ts
-import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.1.0/apply.ts";
+import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.2.0/apply.ts";
 interface Point {
   x: number;
   y: number;
@@ -72,7 +75,7 @@ point3.toString(); // "2, 3, 7, 5"
 Using `applyMixins` to add properties to a class:
 
 ```ts
-import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.1.0/apply.ts";
+import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.2.0/apply.ts";
 interface Point {
   x: number;
   y: number;
@@ -124,7 +127,7 @@ point3.toString(); // "1, 2, 3, 4"
 Applies properties of base class prototypes to instance.
 
 ```ts
-import { applyMixins, applyInstanceMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.1.0/apply.ts";
+import { applyMixins, applyInstanceMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.2.0/apply.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
@@ -171,7 +174,7 @@ point.toString(); // "2, 3, 7, 5"
 Applies properties of base class prototypes to class prototype.
 
 ```ts
-import { applyMixins, applyClassMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.1.0/apply.ts";
+import { applyMixins, applyClassMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.2.0/apply.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
