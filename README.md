@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
 [![deno version](https://img.shields.io/badge/deno-0.42.0-success)](https://github.com/denoland/deno)
+[![test](https://github.com/udibo/mixins/workflows/test/badge.svg)](https://github.com/udibo/mixins/actions?query=workflow%3Atest)
 
 This module provides a few basic functions to help combine objects or build up classes from partial classes.
 
