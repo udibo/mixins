@@ -1,8 +1,9 @@
 # Mixins
 
 [![version](https://img.shields.io/badge/release-v0.3.0-success)](https://github.com/udibo/mixins/tree/v0.3.0)
-[![deno version](https://img.shields.io/badge/deno-v1.0.0-success)](https://github.com/denoland/deno/tree/v1.0.0)
 [![CI](https://github.com/udibo/mixins/workflows/CI/badge.svg)](https://github.com/udibo/mixins/actions?query=workflow%3ACI)
+[![deno version](https://img.shields.io/badge/deno-v1.0.0-success)](https://github.com/denoland/deno/tree/v1.0.0)
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/mixins/mod.ts)
 [![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
 
 This module provides a few basic functions to help combine objects or build up classes from partial classes.
