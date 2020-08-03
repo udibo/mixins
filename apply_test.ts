@@ -81,7 +81,6 @@ Deno.test("applyMixins to class", () => {
     time: number;
   }
   interface Point4D extends Point, TimePoint {
-    new (x: number, y: number, z: number, time: number): Point4D;
     z: number;
     toArray(): [number, number, number, number];
     toString(): string;

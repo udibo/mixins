@@ -1,5 +1,8 @@
+/** This module is browser compatible. */
+
 /** Applies properties of mixins to instance. */
-export function applyMixins(instance: any, mixins: any[]) {
+// deno-lint-ignore no-explicit-any
+export function applyMixins<T>(instance: T, mixins: any[]) {
   mixins.forEach((mixin) => {
     Object.getOwnPropertyNames(mixin).forEach((name) => {
       Object.defineProperty(
@@ -15,11 +18,16 @@ export function applyMixins(instance: any, mixins: any[]) {
 }
 
 /** Applies properties of base class prototypes to instance. */
-export function applyInstanceMixins(instance: any, baseCtors: any[]) {
-  applyMixins(instance, baseCtors.map((baseCtor) => baseCtor.prototype));
+// deno-lint-ignore no-explicit-any
+export function applyInstanceMixins<T>(instance: T, baseCtors: any[]) {
+  applyMixins(
+    instance,
+    baseCtors.map((baseCtor) => baseCtor.prototype ?? baseCtor),
+  );
 }
 
 /** Applies properties of base class prototypes to class prototype. */
-export function applyClassMixins(ctor: any, baseCtors: any[]) {
+// deno-lint-ignore no-explicit-any
+export function applyClassMixins(ctor: Function, baseCtors: any[]) {
   applyInstanceMixins(ctor.prototype, baseCtors);
 }

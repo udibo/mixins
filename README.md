@@ -1,9 +1,9 @@
 # Mixins
 
-[![version](https://img.shields.io/badge/release-v0.3.1-success)](https://github.com/udibo/mixins/tree/v0.3.1)
+[![version](https://img.shields.io/badge/release-v0.4.0-success)](https://github.com/udibo/mixins/tree/v0.4.0)
 [![CI](https://github.com/udibo/mixins/workflows/CI/badge.svg)](https://github.com/udibo/mixins/actions?query=workflow%3ACI)
-[![deno version](https://img.shields.io/badge/deno-v1.1.2-success)](https://github.com/denoland/deno/tree/v1.1.2)
-[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/raw.githubusercontent.com/udibo/mixins/v0.3.1/mod.ts)
+[![deno version](https://img.shields.io/badge/deno-v1.2.2-success)](https://github.com/denoland/deno/tree/v1.2.2)
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/raw.githubusercontent.com/udibo/mixins/v0.4.0/mod.ts)
 [![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
 
 This module provides a few basic functions to help combine objects or build up classes from partial classes.
@@ -19,7 +19,7 @@ Applies properties of mixins to instance.
 Using `applyMixins` to add properties to an object:
 
 ```ts
-import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.3.0/apply.ts";
+import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.4.0/apply.ts";
 interface Point {
   x: number;
   y: number;
@@ -41,7 +41,7 @@ point3; // { time: 5, x: 2, y: 3, z: 7 }
 Using `applyMixins` to add properties to a function:
 
 ```ts
-import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.3.0/apply.ts";
+import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.4.0/apply.ts";
 interface Point {
   x: number;
   y: number;
@@ -78,7 +78,7 @@ point3.toString(); // "2, 3, 7, 5"
 Using `applyMixins` to add properties to a class:
 
 ```ts
-import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.3.0/apply.ts";
+import { applyMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.4.0/apply.ts";
 interface Point {
   x: number;
   y: number;
@@ -130,7 +130,7 @@ point3.toString(); // "1, 2, 3, 4"
 Applies properties of base class prototypes to instance.
 
 ```ts
-import { applyMixins, applyInstanceMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.3.0/apply.ts";
+import { applyMixins, applyInstanceMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.4.0/apply.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
@@ -177,7 +177,7 @@ point.toString(); // "2, 3, 7, 5"
 Applies properties of base class prototypes to class prototype.
 
 ```ts
-import { applyMixins, applyClassMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.3.0/apply.ts";
+import { applyMixins, applyClassMixins } from "https://raw.githubusercontent.com/udibo/mixins/v0.4.0/apply.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
