@@ -27,7 +27,11 @@ export function applyInstanceMixins<T>(instance: T, baseCtors: any[]) {
 }
 
 /** Applies properties of base class prototypes to class prototype. */
-// deno-lint-ignore no-explicit-any
-export function applyClassMixins(ctor: Function, baseCtors: any[]) {
+export function applyClassMixins<T>(
+  // deno-lint-ignore no-explicit-any
+  ctor: { new (...args: any[]): T },
+  // deno-lint-ignore no-explicit-any
+  baseCtors: any[],
+) {
   applyInstanceMixins(ctor.prototype, baseCtors);
 }
