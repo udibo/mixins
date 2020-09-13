@@ -2,7 +2,7 @@
 
 [![version](https://img.shields.io/badge/release-v0.5.0-success)](https://github.com/udibo/mixins/tree/v0.5.0)
 [![deno doc](https://img.shields.io/badge/deno-doc-success?logo=deno)](https://doc.deno.land/https/deno.land/x/mixins@v0.5.0/mod.ts)
-[![deno version](https://img.shields.io/badge/deno-v1.3.2-success?logo=deno)](https://github.com/denoland/deno/tree/v1.3.2)
+[![deno version](https://img.shields.io/badge/deno-v1.4.0-success?logo=deno)](https://github.com/denoland/deno/tree/v1.4.0)
 [![CI](https://github.com/udibo/mixins/workflows/CI/badge.svg)](https://github.com/udibo/mixins/actions?query=workflow%3ACI)
 [![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
 
