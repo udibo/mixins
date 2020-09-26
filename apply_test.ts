@@ -202,6 +202,10 @@ Deno.test("applyClassMixins", () => {
   class Point {
     constructor(public x: number, public y: number) {}
 
+    static defaultPosition(): [number, number] {
+      return [0, 0];
+    }
+
     getPosition(): string {
       return [this.x, this.y].join(", ");
     }
@@ -251,7 +255,17 @@ Deno.test("applyClassMixins", () => {
   assertEquals(Point4D.example(), "2, 3, 7, 5");
   assertEquals(
     Object.getOwnPropertyNames(Point4D).sort(),
-    ["example", "length", "name", "prototype", "time", "x", "y", "z"],
+    [
+      "defaultPosition",
+      "example",
+      "length",
+      "name",
+      "prototype",
+      "time",
+      "x",
+      "y",
+      "z",
+    ],
   );
   assertEquals(
     Object.getOwnPropertyNames(Point4D.prototype).sort(),
