@@ -1,5 +1,5 @@
 import { assertEquals } from "./deps/std/testing/asserts.ts";
-import { applyMixins, applyInstanceMixins, applyClassMixins } from "./apply.ts";
+import { applyClassMixins, applyInstanceMixins, applyMixins } from "./apply.ts";
 
 Deno.test("applyMixins to object", () => {
   interface Point {

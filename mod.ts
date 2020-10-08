@@ -1,7 +1,3 @@
 /** This module is browser compatible. */
 
-export {
-  applyMixins,
-  applyInstanceMixins,
-  applyClassMixins,
-} from "./apply.ts";
+export { applyClassMixins, applyInstanceMixins, applyMixins } from "./apply.ts";
