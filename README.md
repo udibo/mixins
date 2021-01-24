@@ -2,11 +2,12 @@
 
 [![version](https://img.shields.io/badge/release-v0.7.1-success)](https://github.com/udibo/mixins/tree/v0.7.1)
 [![deno doc](https://img.shields.io/badge/deno-doc-success?logo=deno)](https://doc.deno.land/https/deno.land/x/mixins@v0.7.1/mod.ts)
-[![deno version](https://img.shields.io/badge/deno-v1.6.0-success?logo=deno)](https://github.com/denoland/deno/tree/v1.6.0)
+[![deno version](https://img.shields.io/badge/deno-v1.7.0-success?logo=deno)](https://github.com/denoland/deno/tree/v1.7.0)
 [![CI](https://github.com/udibo/mixins/workflows/CI/badge.svg)](https://github.com/udibo/mixins/actions?query=workflow%3ACI)
 [![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
 
-This module provides a few basic functions to help combine objects or build up classes from partial classes.
+This module provides a few basic functions to help combine objects or build up
+classes from partial classes.
 
 ## Features
 
@@ -14,13 +15,16 @@ This module provides a few basic functions to help combine objects or build up c
 
 ## Installation
 
-This is an ES Module written in TypeScript and can be used in Deno projects. ES Modules are the official standard format to package JavaScript code for reuse. A JavaScript bundle is provided with each release so that it can be used in Node.js packages or web browsers.
+This is an ES Module written in TypeScript and can be used in Deno projects. ES
+Modules are the official standard format to package JavaScript code for reuse. A
+JavaScript bundle is provided with each release so that it can be used in
+Node.js packages or web browsers.
 
 ### Deno
 
-To include it in a Deno project, you can import directly from the TS files.
-This module is available in Deno's third part module registry
-but can also be imported directly from GitHub using raw content URLs.
+To include it in a Deno project, you can import directly from the TS files. This
+module is available in Deno's third part module registry but can also be
+imported directly from GitHub using raw content URLs.
 
 ```ts
 // Import from Deno's third party module registry
@@ -33,27 +37,30 @@ import { applyMixins } "https://raw.githubusercontent.com/udibo/mixins/v0.7.1/mo
 
 Node.js fully supports ES Modules.
 
-If a Node.js package has the type "module" specified in its package.json file, the JavaScript bundle can be imported as a `.js` file.
+If a Node.js package has the type "module" specified in its package.json file,
+the JavaScript bundle can be imported as a `.js` file.
 
 ```js
 import { applyMixins } from "./mixins_v0.7.1.js";
 ```
 
-The default type for Node.js packages is "commonjs".
-To import the bundle into a commonjs package, the file extension of the JavaScript bundle must be changed from `.js` to `.mjs`.
+The default type for Node.js packages is "commonjs". To import the bundle into a
+commonjs package, the file extension of the JavaScript bundle must be changed
+from `.js` to `.mjs`.
 
 ```js
 import { applyMixins } from "./mixins_v0.7.1.mjs";
 ```
 
-See [Node.js Documentation](https://nodejs.org/api/esm.html) for more information.
+See [Node.js Documentation](https://nodejs.org/api/esm.html) for more
+information.
 
 ### Browser
 
 Most modern browsers support ES Modules.
 
-The JavaScript bundle can be imported into ES modules.
-Script tags for ES modules must have the type attribute set to "module".
+The JavaScript bundle can be imported into ES modules. Script tags for ES
+modules must have the type attribute set to "module".
 
 ```html
 <script type="module" src="main.js"></script>
@@ -64,8 +71,8 @@ Script tags for ES modules must have the type attribute set to "module".
 import { applyMixins } from "./mixins_v0.7.1.js";
 ```
 
-You can also embed a module script directly into an HTML file by placing the JavaScript code
-within the body of the script tag.
+You can also embed a module script directly into an HTML file by placing the
+JavaScript code within the body of the script tag.
 
 ```html
 <script type="module">
@@ -73,11 +80,14 @@ within the body of the script tag.
 </script>
 ```
 
-See [MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) for more information.
+See
+[MDN Documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+for more information.
 
 ## Usage
 
-Below are some examples of how to use each of the functions provided by the mixins module.
+Below are some examples of how to use each of the functions provided by the
+mixins module.
 
 ### applyMixins
 
@@ -133,9 +143,12 @@ const point3: Point4D = function (
 } as Point4D;
 applyMixins(
   point3,
-  [point1, point2, { z: 7, toString: function (this: Point4D) {
-    return [this.x, this.y, this.z, this.time].join(", ");
-  } }],
+  [point1, point2, {
+    z: 7,
+    toString: function (this: Point4D) {
+      return [this.x, this.y, this.z, this.time].join(", ");
+    },
+  }],
 );
 
 point3(1, 2, 3, 4); // "1, 2, 3, 4"
@@ -183,9 +196,11 @@ class Point4D {
 const point1: Point = { x: 2, y: 3 };
 const point2: TimePoint = { time: 5 };
 applyMixins(Point4D, [point1, point2, { z: 7 }]);
-applyMixins(Point4D.prototype, [{ toArray: function () {
-  return [this.x, this.y, this.z, this.time];
-} }]);
+applyMixins(Point4D.prototype, [{
+  toArray: function () {
+    return [this.x, this.y, this.z, this.time];
+  },
+}]);
 const point3: Point4D = new Point4D(1, 2, 3, 4);
 
 Point4D.example(); // "2, 3, 7, 5"
@@ -197,7 +212,10 @@ point3.toString(); // "1, 2, 3, 4"
 Applies properties of base class prototypes to instance.
 
 ```ts
-import { applyMixins, applyInstanceMixins } from "https://deno.land/x/mixins@v0.7.1/mod.ts";
+import {
+  applyInstanceMixins,
+  applyMixins,
+} from "https://deno.land/x/mixins@v0.7.1/mod.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
@@ -244,7 +262,10 @@ point.toString(); // "2, 3, 7, 5"
 Applies properties of base class prototypes to class prototype.
 
 ```ts
-import { applyMixins, applyClassMixins } from "https://deno.land/x/mixins@v0.7.1/mod.ts";
+import {
+  applyClassMixins,
+  applyMixins,
+} from "https://deno.land/x/mixins@v0.7.1/mod.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
