@@ -160,9 +160,9 @@ Deno.test("applyInstanceMixins", () => {
     z: number;
     toString(): string;
   }
-  class Point4DPartial {
-    constructor(public z: number) {}
-
+  abstract class Point4DPartial {
+    // https://github.com/denoland/deno_lint/issues/667#issuecomment-821856328
+    // deno-lint-ignore no-unused-vars
     toString(this: Point4D): string {
       return [this.getPosition(), this.z, this.getTime()].join(", ");
     }
@@ -244,7 +244,9 @@ Deno.test("applyClassMixins", () => {
       return this.toArray().join(", ");
     }
   }
-  class Point4DPartial {
+  abstract class Point4DPartial {
+    // https://github.com/denoland/deno_lint/issues/667#issuecomment-821856328
+    // deno-lint-ignore no-unused-vars
     toArray(this: Point4D): [number, number, number, number] {
       return [this.x, this.y, this.z, this.time];
     }
