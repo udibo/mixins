@@ -1,5 +1,5 @@
-import { assertEquals } from "./deps/std/testing/asserts.ts";
-import { applyClassMixins, applyInstanceMixins, applyMixins } from "./apply.ts";
+import { assertEquals } from "./test_deps.ts";
+import { applyClassMixins, applyInstanceMixins, applyMixins } from "./mod.ts";
 
 Deno.test("applyMixins to object", () => {
   interface Point {
@@ -161,8 +161,6 @@ Deno.test("applyInstanceMixins", () => {
     toString(): string;
   }
   abstract class Point4DPartial {
-    // https://github.com/denoland/deno_lint/issues/667#issuecomment-821856328
-    // deno-lint-ignore no-unused-vars
     toString(this: Point4D): string {
       return [this.getPosition(), this.z, this.getTime()].join(", ");
     }
@@ -245,8 +243,6 @@ Deno.test("applyClassMixins", () => {
     }
   }
   abstract class Point4DPartial {
-    // https://github.com/denoland/deno_lint/issues/667#issuecomment-821856328
-    // deno-lint-ignore no-unused-vars
     toArray(this: Point4D): [number, number, number, number] {
       return [this.x, this.y, this.z, this.time];
     }

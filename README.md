@@ -1,13 +1,13 @@
 # Mixins
 
-[![version](https://img.shields.io/badge/release-v0.7.2-success)](https://github.com/udibo/mixins/tree/v0.7.2)
-[![deno doc](https://img.shields.io/badge/deno-doc-success?logo=deno)](https://doc.deno.land/https/deno.land/x/mixins@v0.7.2/mod.ts)
-[![deno version](https://img.shields.io/badge/deno-v1.9.0-success?logo=deno)](https://github.com/denoland/deno/tree/v1.9.0)
+[![version](https://img.shields.io/badge/release-v0.7.3-success)](https://github.com/udibo/mixins/tree/v0.7.3)
+[![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/mixins@v0.7.3/mod.ts)
 [![CI](https://github.com/udibo/mixins/workflows/CI/badge.svg)](https://github.com/udibo/mixins/actions?query=workflow%3ACI)
+[![codecov](https://codecov.io/gh/udibo/mixins/branch/master/graph/badge.svg?token=LIK8G3SMOC)](https://codecov.io/gh/udibo/mixins)
 [![license](https://img.shields.io/github/license/udibo/mixins)](https://github.com/udibo/mixins/blob/master/LICENSE)
 
-This module provides a few basic functions to help combine objects or build up
-classes from partial classes.
+Helper functions for combining objects and building up classes from partial
+classes.
 
 ## Features
 
@@ -28,9 +28,9 @@ imported directly from GitHub using raw content URLs.
 
 ```ts
 // Import from Deno's third party module registry
-import { applyMixins } from "https://deno.land/x/mixins@v0.7.2/mod.ts";
+import { applyMixins } from "https://deno.land/x/mixins@v0.7.3/mod.ts";
 // Import from GitHub
-import { applyMixins } "https://raw.githubusercontent.com/udibo/mixins/v0.7.2/mod.ts";
+import { applyMixins } "https://raw.githubusercontent.com/udibo/mixins/v0.7.3/mod.ts";
 ```
 
 ### Node.js
@@ -41,7 +41,7 @@ If a Node.js package has the type "module" specified in its package.json file,
 the JavaScript bundle can be imported as a `.js` file.
 
 ```js
-import { applyMixins } from "./mixins_v0.7.2.js";
+import { applyMixins } from "./mixins_v0.7.3.js";
 ```
 
 The default type for Node.js packages is "commonjs". To import the bundle into a
@@ -49,7 +49,7 @@ commonjs package, the file extension of the JavaScript bundle must be changed
 from `.js` to `.mjs`.
 
 ```js
-import { applyMixins } from "./mixins_v0.7.2.mjs";
+import { applyMixins } from "./mixins_v0.7.3.mjs";
 ```
 
 See [Node.js Documentation](https://nodejs.org/api/esm.html) for more
@@ -68,7 +68,7 @@ modules must have the type attribute set to "module".
 
 ```js
 // main.js
-import { applyMixins } from "./mixins_v0.7.2.js";
+import { applyMixins } from "./mixins_v0.7.3.js";
 ```
 
 You can also embed a module script directly into an HTML file by placing the
@@ -76,7 +76,7 @@ JavaScript code within the body of the script tag.
 
 ```html
 <script type="module">
-  import { applyMixins } from "./mixins_v0.7.2.js";
+  import { applyMixins } from "./mixins_v0.7.3.js";
 </script>
 ```
 
@@ -96,7 +96,7 @@ Applies properties of mixins to instance.
 Using `applyMixins` to add properties to an object:
 
 ```ts
-import { applyMixins } from "https://deno.land/x/mixins@v0.7.2/mod.ts";
+import { applyMixins } from "https://deno.land/x/mixins@v0.7.3/mod.ts";
 interface Point {
   x: number;
   y: number;
@@ -118,7 +118,7 @@ point3; // { time: 5, x: 2, y: 3, z: 7 }
 Using `applyMixins` to add properties to a function:
 
 ```ts
-import { applyMixins } from "https://deno.land/x/mixins@v0.7.2/mod.ts";
+import { applyMixins } from "https://deno.land/x/mixins@v0.7.3/mod.ts";
 interface Point {
   x: number;
   y: number;
@@ -158,7 +158,7 @@ point3.toString(); // "2, 3, 7, 5"
 Using `applyMixins` to add properties to a class:
 
 ```ts
-import { applyMixins } from "https://deno.land/x/mixins@v0.7.2/mod.ts";
+import { applyMixins } from "https://deno.land/x/mixins@v0.7.3/mod.ts";
 interface Point {
   x: number;
   y: number;
@@ -215,7 +215,7 @@ Applies properties of base class prototypes to instance.
 import {
   applyInstanceMixins,
   applyMixins,
-} from "https://deno.land/x/mixins@v0.7.2/mod.ts";
+} from "https://deno.land/x/mixins@v0.7.3/mod.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
@@ -265,7 +265,7 @@ Applies properties of base class prototypes to class prototype.
 import {
   applyClassMixins,
   applyMixins,
-} from "https://deno.land/x/mixins@v0.7.2/mod.ts";
+} from "https://deno.land/x/mixins@v0.7.3/mod.ts";
 class Point {
   constructor(public x: number, public y: number) {}
 
