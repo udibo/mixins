@@ -2,7 +2,7 @@ name: CI
 on: [push, pull_request]
 jobs:
   build:
-    name: tests deno ${{ matrix.deno }} ${{ matrix.os }}
+    name: test deno ${{ matrix.deno }} ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 5
     strategy:
