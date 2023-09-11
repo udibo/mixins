@@ -5,7 +5,11 @@
 export function applyMixins<T>(instance: T, mixins: any[]) {
   mixins.forEach((mixin) => {
     Object.getOwnPropertyNames(mixin).forEach((name) => {
-      if (name === "prototype") return;
+      // if (name === "prototype") return;
+      if (
+        name === "prototype" || name === "name" || name === "constructor" ||
+        name === "length"
+      ) return;
       Object.defineProperty(
         instance,
         name,
