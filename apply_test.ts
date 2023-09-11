@@ -1,4 +1,8 @@
-import { assertEquals } from "./test_deps.ts";
+import {
+  assertEquals,
+  assertObjectMatch,
+  assertStrictEquals,
+} from "https://deno.land/std@0.201.0/assert/mod.ts";
 import { applyClassMixins, applyInstanceMixins, applyMixins } from "./mod.ts";
 
 Deno.test("applyMixins to object", () => {
@@ -181,7 +185,6 @@ Deno.test("applyInstanceMixins", () => {
   assertEquals(
     Object.getOwnPropertyNames(point).sort(),
     [
-      "constructor",
       "getPosition",
       "getTime",
       "length",
@@ -198,6 +201,8 @@ Deno.test("applyInstanceMixins", () => {
 
 Deno.test("applyClassMixins", () => {
   class Point {
+    static x = 2;
+
     constructor(public x: number, public y: number) {}
 
     static defaultPosition(): [number, number] {
@@ -209,6 +214,7 @@ Deno.test("applyClassMixins", () => {
     }
   }
   class TimePoint {
+    static time = 5;
     constructor(public time: number) {}
 
     getTime(): number {
@@ -222,10 +228,10 @@ Deno.test("applyClassMixins", () => {
     toString(): string;
   }
   class Point4D {
-    static x: number;
-    static y: number;
-    static z: number;
-    static time: number;
+    declare static x: number;
+    declare static y: number;
+    declare static z: number;
+    declare static time: number;
 
     constructor(
       public x: number,
@@ -248,7 +254,7 @@ Deno.test("applyClassMixins", () => {
     }
   }
   applyClassMixins(Point4D, [Point, TimePoint, Point4DPartial]);
-  applyMixins(Point4D, [{ time: 5, x: 2, y: 3, z: 7 }]);
+  applyMixins(Point4D, [{ y: 3, z: 7 }]);
 
   assertEquals(Point4D.example(), "2, 3, 7, 5");
   assertEquals(
@@ -269,12 +275,21 @@ Deno.test("applyClassMixins", () => {
     Object.getOwnPropertyNames(Point4D.prototype).sort(),
     ["constructor", "getPosition", "getTime", "toArray", "toString"],
   );
+  assertEquals(Point4D.name, "Point4D");
+  assertStrictEquals(Point4D.prototype.constructor, Point4D);
+  assertObjectMatch(Point4D, {
+    x: 2,
+    y: 3,
+    z: 7,
+    time: 5,
+  });
 
   applyMixins(Point4D, [{ x: 10, y: 16 }, { y: 18, z: 22 }]);
   assertEquals(Point4D.example(), "10, 18, 22, 5");
 
   const point: Point4D = new Point4D(1, 2, 3, 4);
 
+  assertStrictEquals(point.constructor, Point4D);
   assertEquals(point.toArray(), [1, 2, 3, 4]);
   assertEquals(point.toString(), "1, 2, 3, 4");
   assertEquals(point.getPosition(), "1, 2");
